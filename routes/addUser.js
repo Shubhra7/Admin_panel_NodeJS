@@ -1,6 +1,7 @@
 import express from "express";
 import { User } from "../models/customerSchema.js";
 import moment from "moment";
+import { userController7 } from "../controllers/userController.js";
 
 const router = express.Router();
 
@@ -9,27 +10,9 @@ router.get("", (req, res) => {
   res.render("user/add");
 });
 
-// POST request
-router.post("", (req, res) => {
-  // console.log(req.body);
-  // const user = new User(req.body);
-  // user
-  //   .save()
-  //   .then(() => {
-  //     res.redirect("/");
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
-
-  User.create(req.body)
-    .then(() => {
-      res.redirect("/");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+// POST request 
+// for creating new user
+router.post("", userController7);
 
 
 export default router
